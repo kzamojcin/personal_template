@@ -1,6 +1,6 @@
 ### personal_template
 
-####2017-07-09 10:01pm
+#### 2017-07-09 10:01pm
 
 Starting my "journal".
 
