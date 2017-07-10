@@ -1,5 +1,6 @@
-## They quote by which I try to live:
+## The quote by which I try to live by Charlie Munger (afaik):
 >Spend each day trying to be a little wiser than you were when you woke up.
+
 
 
 #### 2017-07-09 :clock10: 10:01pm
@@ -24,7 +25,7 @@ I'm off for now, as I need to prepare and mail some documents.
 Can't prepare documents at the moment, need to postpone it a bit.
 
 
-**:clock0700: 07:00pm**
+**:clock7: 07:00pm**
 
 I'm quite happy how this day worked out.
 
