@@ -30,3 +30,10 @@ Can't prepare documents at the moment, need to postpone it a bit.
 I'm quite happy how this day worked out.
 
 I've managed to close many day-to-day subjects that were open for past couple of weeks, still I would love to do some more work related stuff.
+
+**:clock930: 09:30pm**
+
+Going to call it for today.
+I'm off to do some drawing and afterwards off to bed. 
+
+Over-&-Out.
