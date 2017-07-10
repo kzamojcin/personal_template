@@ -15,10 +15,8 @@ git add	(prepares modified file to be commited)
 git commit -m "insert comment here" (commits file changes with a comment )
 git pull (pulls repository version from your github page)
 git push (pushes changes to github)
-git push origin :old_branch new_branch (This will both delete the old branch and push the new one - )
-
-[src](https://stackoverflow.com/questions/9524933/renaming-a-branch-in-github) 
-pwd (prints path of the working directory)
+git push origin :old_branch new_branch (This will both delete the old branch and push the new one - ```[src](https://stackoverflow.com/questions/9524933/renaming-a-branch-in-github) ```
+pwd (prints path of the working directory))
 git merge ()
 cd path (changes directory)
 cd .. (goes up one directory)
