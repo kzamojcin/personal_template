@@ -17,5 +17,6 @@ It is safe to say that time will show.
 
 I'm off for now, as I need to prepare and mail some documents.
 
-Abort.  :clock1230: 12:30pm.
+**Abort.**  :clock1230: 12:30pm.
+
 Can't prepare documents at the moment, need to postpone it a bit.
