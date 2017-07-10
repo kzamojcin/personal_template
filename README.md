@@ -9,3 +9,8 @@ At the moment I'm trying to figure out how all of this will look like, although 
 In couple of minutes I'm going to stop for today, and continue on this tomorrow.
 
 
+#### 2017-07-10  :clock1130: 11:38am
+
+Added notes folder, still there is no general idea in my mind how it all will look like.
+It is safe to say that time will show.
+I'm off for now, as I need to prepare and mail some documents.
