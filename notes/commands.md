@@ -27,3 +27,6 @@ echo >> (">>" adds data to the current content of the file)
 
 ```
 For this, and more commands for Git Bash CMD Line check [Getting started with Git Bash CMD Line](https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line)
+
+Another test, branches.
+This text should be visible only in commands-undergoing branch.
