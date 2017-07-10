@@ -1,6 +1,6 @@
 #### 2017-07-09 :clock10: 10:01pm
 
-Starting my "journal".
+Birth of my journal.
 
 At the moment I'm trying to figure out how all of this will look like, although it is quite late and I'm really tired.
 
