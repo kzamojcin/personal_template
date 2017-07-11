@@ -41,3 +41,9 @@ Over-&-Out.
 #### 2017-07-11  :clock915: 09:14am
 
 Back in the bussiness, for an hour already, this is good.
+
+**:clock10: 10:10pm Bed time**
+
+It was another fine day, I have managed to push project a bit forward and done some drawing ( although way way to little )
+
+Over-&-Out

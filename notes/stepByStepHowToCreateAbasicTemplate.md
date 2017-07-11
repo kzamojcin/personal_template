@@ -37,7 +37,7 @@ By saving it with -dev we put it into devDependencies, the difference between de
 dependecies - packages required by our website to run properly in web browser
 devDependencies - development packages important for.. developer
 
-###### Whenever we install a gulp package, to be able to use it we need to require it in our main gulp file, for this template it is gulpfile.js
+##### Whenever we install a gulp package, to be able to use it we need to require it in our main gulp file, for this template it is gulpfile.js
 
 3. create gulpfile.js in the root folder
 
@@ -47,7 +47,7 @@ Gulp plugin **gulp-watch** lets us monitor specified files for changes and do so
 
 './app/assets/styles/**/*.css' selects all the folders inside styles folder and all files inside those folders which ends with '.css'. This doesn't really fit well in this section although it was worth noting, going to change location soon.
 
-### no.4 setting a CSS workflow
+### no.4 setting a CSS workflow, and building our Css skeleton around BEM (Block Element Modifier) principle
 
 autoprefixer package - saving a ton of time, by automatically prefixing css properties
 postCSS - one of the fastest preprocessor for CSS
@@ -60,5 +60,53 @@ return is included as gulp.src() is a asynchronous function
 pipe() - applying modifier to the file, we can use many pipes in one task
 gulp.dest() - destination path for the file
 
+```
 personal note: 
-For now I'm going to use postCss, but I'm considering the use of Prepros for css files, as of Sass, there are some plugins for postcss in regards to Sass but those are not what I look for.
+For now I'm going to use postCss, but I'm considering the use of Prepros for css files, as of Sass, there are some plugins for postcss in regards to Sass but those are not what I'm looking for.
+```
+
+Well organized css file structure is very important.
+
+In this project we create few _filename.css files, underscore "_" meaning is that it tells us that a file is not a stand-alone, it is imported in some other css file. 
+
+Here we use styles.css as a destination file for all partial css ("_filename.css") files.
+
+Dividing css structure that way helps us to stay organized. We don't have to work with a one huge file that is very hard to navigate through, instead we have small sections(files) of css responsible for specific parts of the website, which on the contrary are super easy to navigate through. 
+
+In the end gulp imports all of the partial css files into one css file that our website uses, to achieve this we need a postcss plugin postcss-import.
+
+Presented below is folders & files current structure.
+
+styles.css contains only `@import` commands to import all of partial css files
+
+```
+│   index.html
+│
+├───assets
+│   │
+│   └───styles
+│       │   styles.css
+│       │
+│       ├───base
+│       │       _global.css
+│       │
+│       └───modules
+│               _large-hero.css
+│
+└───temp
+    └───styles
+            styles.css
+```
+
+Once we have few more partial files, it is going to be more obvious how useful this workflow is.
+
+2. ( 2? I guess ) 
+
+Added normalize to our main style.css file, it is an alternative to css resets it adjusts the styles for certain elements, to make your browser more consistent through the browsers.
+
+Personal note: use it on all projects
+Personal note: to center a DIV ( wdith 100% ta: center)
+
+BEM: -- for a class like large-hero--something goes for modifier
+,blocks should have single responsibility
+,bem makes relationship between our css and our website crystal clear 

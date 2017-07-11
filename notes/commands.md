@@ -39,3 +39,4 @@ For this, and more commands for Git Bash CMD Line check [Getting started with Gi
 ```
 node -v (checks version of node on your PC)
 touch filename.filetype (creates new file)
+```
