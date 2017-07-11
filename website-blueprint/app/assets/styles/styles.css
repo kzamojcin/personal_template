@@ -1,1 +1,6 @@
-!
+$mainBlack: #000000;
+
+body {
+	color: $mainBlack;
+	columns: 300px 2;
+}

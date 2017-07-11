@@ -37,3 +37,7 @@ Going to call it for today.
 I'm off to do some drawing and afterwards off to bed. 
 
 Over-&-Out.
+
+#### 2017-07-11  :clock915: 09:14am
+
+Back in the bussiness, for an hour already, this is good.
