@@ -98,7 +98,7 @@ styles.css contains only `@import` commands to import all of partial css files
             styles.css
 ```
 
-Once we have few more partial files, it is going to be more obvious how useful this workflow is.
+Once we have few more partial files, it is going to be easier to see how useful this workflow is.
 
 2. ( 2? I guess ) 
 

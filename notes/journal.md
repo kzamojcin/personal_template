@@ -40,10 +40,14 @@ Over-&-Out.
 
 #### 2017-07-11  :clock915: 09:14am
 
-Back in the bussiness, for an hour already, this is good.
+Back in bussiness, for an hour already, this is good.
 
 **:clock10: 10:10pm Bed time**
 
 It was another fine day, I have managed to push project a bit forward and done some drawing ( although way way to little )
 
 Over-&-Out
+
+#### 2017-07-16 :clock1130: 11:37am
+
+With couple of days away, I've refreshed my brain a bit and we are back on tracks to continue creation of our web template.
