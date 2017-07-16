@@ -3,7 +3,7 @@
 Install node.js - [nodejs official website](https://nodejs.org/en/)
 By doing so we are going to be able to use npm command, and much more
 
-### no.2 creation of "ingredient" list for our website
+### no.2 Creation of "ingredient" list for our website
 
 npm init (creates a **package.json** file, it keeps track of all of the packages that the project uses.)
 
@@ -19,7 +19,7 @@ To find a package go to npmjs.com or simply type in google what you want to achi
 
 .gitignore file helps us with ignoring files that are not going to be used by final ver of the website 
 
-### no.3 getting familiar with Gulp
+### no.3 Getting familiar with Gulp
 
 Gulp is a build system, tool, task runner. Gulp = automation.
 
@@ -70,7 +70,7 @@ By adding this line of code to our 'styles' task, we are able to prevent gulp fr
 })
 ```
 
-### no.4 setting a CSS workflow, and building our Css skeleton around BEM (Block Element Modifier) principle
+### no.4 Setting a CSS workflow, and building our Css skeleton around BEM (Block Element Modifier) principle
 
 1.
 
@@ -154,7 +154,7 @@ most browsers default font size is 16px, so for example 1.5rem * 16px = 24px
 
 Making our font size not hard coded this way, we also take care of users who have their browser default settings changed to their likings, like near-sighted or far-sighted people, I think it is safe to say that it becomes responsive in a way.
 
-### no.5 setting up a Browsersync, let gulp use it to refresh the page for you
+### no.5 Setting up a Browsersync, let gulp use it to refresh the page for you
 
 Browser sync is awesome!
 
@@ -180,4 +180,26 @@ Browser-sync creates and runs a small web server on our own computer.
 
 [Browser Sync API](https://www.browsersync.io/docs/api) - Here is a link where you can dig deeper on those, and other methods of Browser Sync 
 
+### no.6 About the responsivness of images
 
+There are two ways to handle this:
+
+1. One picture, different sizes
+
+```
+<img srcset="path/to/image/resolution-small.jpg 570w, path/to/image/resolution-medium.jpg 1200w, path/to/image/resolution-large.jpg 1920w" alt="Example image">
+```
+
+This lets the browser choose the correct size of img by itself.
+
+2. One shot, different cropping & sizes
+
+```
+<picture>
+	<source srcset="path/to/image/cropped-large.jpg" media="(min-width: 1200px)">
+	<source srcset="path/to/image/cropped-medium.jpg" media="(min-width: 760px)">
+	<img src="path/to/image/cropped-small.jpg" alt="Example image">
+</picture>
+```
+
+This gives us control of the image, and how you want to show it at different sizes of the screen.
