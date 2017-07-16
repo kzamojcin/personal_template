@@ -37,17 +37,42 @@ By saving it with -dev we put it into devDependencies, the difference between de
 dependecies - packages required by our website to run properly in web browser
 devDependencies - development packages important for.. developer
 
-##### Whenever we install a gulp package, to be able to use it we need to require it in our main gulp file, for this template it is gulpfile.js
+##### To be able to use it, whenever we install a gulp package we need to require it in our main gulp file, for this template it is gulpfile.js
 
 3. create gulpfile.js in the root folder
 
-Gulp has a method called task `gulp.task` and with those tasks a majority of magic happens
+Gulp has a method called task `gulp.task` and with those tasks a lot of magic happens
+
+gulp.task ('name_of_the_task', 'what to do when the task is called' )
 
 Gulp plugin **gulp-watch** lets us monitor specified files for changes and do something once the change occurs
 
 './app/assets/styles/**/*.css' selects all the folders inside styles folder and all files inside those folders which ends with '.css'. This doesn't really fit well in this section although it was worth noting, going to change location soon.
 
+Square brackets after a name of the task create dependencies, so that task is not run until the dependant task is completed.
+
+```
+gulp.task('cssInject', ['styles'] function(){
+	
+});
+```
+
+Same as with CSS workflow ( below ) we want to maintain a well organized structure of our files, what we want to avoid is one huge gulp file that's becoming more and more complicated with each new line of code.
+
+4. How to deal with errors in a bit more graceful way
+
+By adding this line of code to our 'styles' task, we are able to prevent gulp from stopping our watch task and still get an info on an error that occurred.
+
+```
+.on('error', function(errorInfo){
+	console.log(errorInfo.toString()); - logs details about our error
+	this.emit('end'); - prevents gulp from stopping watch task
+})
+```
+
 ### no.4 setting a CSS workflow, and building our Css skeleton around BEM (Block Element Modifier) principle
+
+1.
 
 autoprefixer package - saving a ton of time, by automatically prefixing css properties
 postCSS - one of the fastest preprocessor for CSS
@@ -77,8 +102,6 @@ In the end gulp imports all of the partial css files into one css file that our 
 
 Presented below is folders & files current structure.
 
-styles.css contains only `@import` commands to import all of partial css files
-
 ```
 │   index.html
 │
@@ -98,15 +121,63 @@ styles.css contains only `@import` commands to import all of partial css files
             styles.css
 ```
 
+temp folder styles.css contains only `@import` commands to import all of partial css files
+
 Once we have few more partial files, it is going to be easier to see how useful this workflow is.
 
-2. ( 2? I guess ) 
+2.
 
 Added normalize to our main style.css file, it is an alternative to css resets it adjusts the styles for certain elements, to make your browser more consistent through the browsers.
 
 Personal note: use it on all projects
 Personal note: to center a DIV ( wdith 100% ta: center)
 
-BEM: -- for a class like large-hero--something goes for modifier
+**BEM:** 
+
+-- goes for modifier
+
+__ goes for an element
+
+__ element -- with modifier
+
 ,blocks should have single responsibility
+
 ,bem makes relationship between our css and our website crystal clear 
+
+**REM font size:**
+
+rem is simply a multiplication of default font size in pixels:
+
+font size in rem is always related to the root of the page default font size ( html element )
+
+most browsers default font size is 16px, so for example 1.5rem * 16px = 24px
+
+Making our font size not hard coded this way, we also take care of users who have their browser default settings changed to their likings, like near-sighted or far-sighted people, I think it is safe to say that it becomes responsive in a way.
+
+### no.5 setting up a Browsersync, let gulp use it to refresh the page for you
+
+Browser sync is awesome!
+
+With help from Gulp, Browser sync allows our computer to update our project on the fly, saving us a ton of time by eliminating trivial tasks like refreshing the page from our task list.
+
+If thats not enough Browser sync allows us to simultaneously watch our website on variety of devices in the same network and on different browsers, all of that LIVE!
+
+How cool is that ?! 
+
+
+1. npm install browser-sync --save-dev
+_(Do not forget to import this plugin into gulpfile.js)_
+
+We dont need to import the whole browser-sync package, so just after browser-sync include .create() to import that method only.
+
+Browser-sync creates and runs a small web server on our own computer.
+
+.create() - "creates a Browsersync instance"
+
+.init() - "Start the Browsersync service. This will launch a server, proxy or start the snippet mode depending on your use-case."
+
+.stream() - "The stream method returns a transform stream and can act once or on many files."
+
+[Browser Sync API](https://www.browsersync.io/docs/api) - Here is a link where you can dig deeper on those, and other methods of Browser Sync 
+
+
