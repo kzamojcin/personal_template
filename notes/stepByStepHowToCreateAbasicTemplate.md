@@ -154,6 +154,10 @@ most browsers default font size is 16px, so for example 1.5rem * 16px = 24px
 
 Making our font size not hard coded this way, we also take care of users who have their browser default settings changed to their likings, like near-sighted or far-sighted people, I think it is safe to say that it becomes responsive in a way.
 
+**EM font size**
+
+This sets the font size in relation to the font size of the element
+
 ### no.5 Setting up a Browsersync, let gulp use it to refresh the page for you
 
 Browser sync is awesome!
@@ -190,7 +194,11 @@ There are two ways to handle this:
 <img srcset="path/to/image/resolution-small.jpg 570w, path/to/image/resolution-medium.jpg 1200w, path/to/image/resolution-large.jpg 1920w" alt="Example image">
 ```
 
-This lets the browser choose the correct size of img by itself.
+Note: 
+
+We need to tell the browser the size of each img, so it is aware of img size before downloading it, that way it can choose which img to download. The important part here is that the browser chooses which img to display, based on dimensions of the user device.
+
+Long story short, this method lets the browser choose the correct size of img by itself.
 
 2. One shot, different cropping & sizes
 
@@ -203,3 +211,20 @@ This lets the browser choose the correct size of img by itself.
 ```
 
 This gives us control of the image, and how you want to show it at different sizes of the screen.
+
+Note:
+
+With this method, we always want to start with smallest img first.
+
+3. Combination of both
+
+```
+<picture>    
+	<source srcset="assets/images/hero--large.jpg 1920w, assets/images/hero--large-hi-dpi.jpg 3840w" media="(min-width: 1380px)">
+	<source srcset="assets/images/hero--medium.jpg 1380w, assets/images/hero--medium-hi-dpi.jpg 2760w" media="(min-width: 990px)">
+	<source srcset="assets/images/hero--small.jpg 990w, assets/images/hero--small-hi-dpi.jpg 1980w" media="(min-width: 640px)">
+	<img class="large-hero__image" srcset="assets/images/hero--smaller.jpg 640w, assets/images/hero--smaller-hi-dpi.jpg 1280w" alt="Coastal view of ocean & mountains">
+</picture>
+```
+
+By adding higher resolution of images to each media query we cover retina displays as well ( which are of higher pixel density )
