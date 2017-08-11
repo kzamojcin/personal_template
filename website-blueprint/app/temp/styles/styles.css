@@ -460,6 +460,11 @@ img {
 	height: auto;
 }
 
+*{	
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
 .large-hero {
 	border-bottom: 10px solid #2f5572;
 	position: relative;
@@ -628,4 +633,24 @@ img {
 
 .headline--b-margin-large{
 		margin-bottom: 1.6em;
+	}
+
+.row--gutters > div{
+		padding-right: 65px;
+	}
+
+.row__4{
+		float: left;
+		width: 33.33%;
+	}
+
+.row__8{
+		float: left;
+		width: 66.66%;
+	}
+
+.row::after{
+		content: "";
+		clear: both;
+		display: table;
 	}

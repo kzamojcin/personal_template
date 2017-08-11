@@ -70,7 +70,7 @@ By adding this line of code to our 'styles' task, we are able to prevent gulp fr
 })
 ```
 
-### no.4 Setting a CSS workflow, and building our Css skeleton around BEM (Block Element Modifier) principle
+### no.4 Setting a CSS workflow, and building our Css skeleton around BEM (Block Element Modifier) principles
 
 1.
 
@@ -157,6 +157,39 @@ Making our font size not hard coded this way, we also take care of users who hav
 **EM font size**
 
 This sets the font size in relation to the font size of the element
+
+3.
+
+Whenever you use a float attribute, you take the element from the default/normal flow of the page, so it might be necessary to clear after float so elements do not collapse on each other.
+
+Below, an example how to clear after our floated elements with the use of a mixin named clearfix.
+
+```
+@define-mixin clearfix{
+	&::after{
+		content: "";
+		clear: both;
+		display: table;
+	}
+}
+```
+
+4.
+
+```
+*{
+	box-sizing: border-box;
+}
+```
+
+Love it, cherish it, SPREAD IT :)
+
+This bit of css changes the way browser calculates the "box model" for every element on the page ( * - apply to everything ) . 
+
+Long story short, when you add border or/and padding to the element, browser recalculates the size of the element so it stays having the same dimensions but with that new padding/border. Without that css code browser by default enlarges the element by adding padding/border size.
+
+There is a [Super Cool](https://www.youtube.com/watch?v=GvIP6QtCVSg&t=333s) youTube video by Travis Neilson explaining how the magic works in detail, so be sure to check it out.
+
 
 ### no.5 Setting up a Browsersync, let gulp use it to refresh the page for you
 
