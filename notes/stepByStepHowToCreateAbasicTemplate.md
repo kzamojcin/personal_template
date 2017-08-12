@@ -186,7 +186,7 @@ Love it, cherish it, SPREAD IT :)
 
 This bit of css changes the way browser calculates the "box model" for every element on the page ( * - apply to everything ) . 
 
-Long story short, when you add border or/and padding to the element, browser recalculates the size of the element so it stays having the same dimensions but with that new padding/border. Without that css code browser by default enlarges the element by adding padding/border size.
+Long story short, when you add border or/and padding to the element, browser recalculates the size of the element so it stays having the same dimensions but with that new padding/border. Without that css code browser by default enlarges the element by adding padding/border size to so called true width of the element.
 
 There is a [Super Cool](https://www.youtube.com/watch?v=GvIP6QtCVSg&t=333s) youTube video by Travis Neilson explaining how the magic works in detail, so be sure to check it out.
 
@@ -233,7 +233,7 @@ We need to tell the browser the size of each img, so it is aware of img size bef
 
 Long story short, this method lets the browser choose the correct size of img by itself.
 
-2. One shot, different cropping & sizes
+2. Same shot, different cropping & sizes
 
 ```
 <picture>
@@ -261,3 +261,27 @@ With this method, we always want to start with smallest img first.
 ```
 
 By adding higher resolution of images to each media query we cover retina displays as well ( which are of higher pixel density )
+
+4. A way to tell the browser at what width the img is going to be displayed, IF NOT full window width. For same & different cropping.
+
+Telling the browser what size of our img is works well if the img is going to be displayed at 100% of window width.
+
+In other cases we need to add an attribute called "sizes" and specify (max)width at which specific img is going to be displayed.
+
+```
+Different
+
+<picture>
+  <source sizes="404px" srcset="assets/images/our-start.jpg 404w, assets/images/our-start-hi-dpi.jpg 808w" media="(min-width:1020px)">
+  <source sizes="320px" srcset="assets/images/our-start-portrait.jpg 382w, assets/images/our-start-portrait-hi-dpi.jpg 764w" media="(min-width:800px)">
+  <img srcset="assets/images/our-start-landscape.jpg, assets/images/our-start-landscape-hi-dpi.jpg" alt="Our founder, Jane Doe">
+</picture>
+```
+
+```
+Same
+<img sizes="(min-width: 970px) 976px, 100vw" srcset="assets/images/first-trip-low-res-i.jpg 565w, assets/images/first-trip-i.jpg 976w, assets/images/first-trip-hi-dpi-i.jpg 1952w" alt="Couple walking down a street.">
+```
+
+
+
