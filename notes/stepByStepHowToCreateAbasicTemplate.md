@@ -70,7 +70,7 @@ By adding this line of code to our 'styles' task, we are able to prevent gulp fr
 })
 ```
 
-### no.4 Setting a CSS workflow, and building our Css skeleton around BEM (Block Element Modifier) principles
+### no.4 Setting a CSS workflow, and building our CSS skeleton around BEM (Block Element Modifier) principles
 
 1.
 
@@ -146,11 +146,11 @@ __ element -- with modifier
 
 **REM font size:**
 
-rem is simply a multiplication of default font size in pixels:
+rem is simply a result of quotient of font-size we want to provide with default font size, in pixels:
 
 font size in rem is always related to the root of the page default font size ( html element )
 
-most browsers default font size is 16px, so for example 1.5rem * 16px = 24px
+Most browsers default font size is 16px, so if we want to have an equivalent of for example 24px in rems, then 24px / 16px = 1.5rem
 
 Making our font size not hard coded this way, we also take care of users who have their browser default settings changed to their likings, like near-sighted or far-sighted people, I think it is safe to say that it becomes responsive in a way.
 
@@ -189,6 +189,10 @@ This bit of css changes the way browser calculates the "box model" for every ele
 Long story short, when you add border or/and padding to the element, browser recalculates the size of the element so it stays having the same dimensions but with that new padding/border. Without that css code browser by default enlarges the element by adding padding/border size to so called true width of the element.
 
 There is a [Super Cool](https://www.youtube.com/watch?v=GvIP6QtCVSg&t=333s) youTube video by Travis Neilson explaining how the magic works in detail, so be sure to check it out.
+
+5. Some extras
+
+Line height - property that doesnt require a unit of measurement like px,rem etc.
 
 
 ### no.5 Setting up a Browsersync, let gulp use it to refresh the page for you
@@ -267,6 +271,10 @@ By adding higher resolution of images to each media query we cover retina displa
 Telling the browser what size of our img is works well if the img is going to be displayed at 100% of window width.
 
 In other cases we need to add an attribute called "sizes" and specify (max)width at which specific img is going to be displayed.
+**Real fun thing is**, that we can use media queries inside of sizes attribute !
+
+Below, in the "Same" example we can see a use of sizes attribute with media query.
+It says that for screens with min-width 970px and higher, img is going to have a max width of 976px, for screens lower than that media query ( < 970px ) img is having 100vw ( 100% of viewpor twidth of the device ) 
 
 ```
 Different
@@ -280,6 +288,7 @@ Different
 
 ```
 Same
+
 <img sizes="(min-width: 970px) 976px, 100vw" srcset="assets/images/first-trip-low-res-i.jpg 565w, assets/images/first-trip-i.jpg 976w, assets/images/first-trip-hi-dpi-i.jpg 1952w" alt="Couple walking down a street.">
 ```
 
