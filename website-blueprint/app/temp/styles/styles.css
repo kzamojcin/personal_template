@@ -724,22 +724,45 @@ a{
 	}
 
 .section-title{
-	font-size: 3.75rem;
+	font-size: 2.55rem;
 	font-weight: 300;
 	text-align: center;
 }
+
+@media (min-width: 530px){
+
+.section-title{
+		font-size: 3.75rem
+}
+	}
 
 .section-title strong{
 		font-weight: 500;
 	}
 
 .section-title__icon{
-		margin-right: .5rem;
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+		margin-bottom: .6rem;
+
+	}
+
+@media (min-width: 530px){
+
+.section-title__icon{
+			display: inline-block;
+			margin-left: 0;
+			margin-right: .5rem;	
+			margin-bottom: 0
+
+	}
 	}
 
 .feature-item{
 	position: relative;
 	padding-left: 94px;
+	padding-bottom: 2.5rem;
 }
 
 .feature-item__icon{
@@ -750,5 +773,5 @@ a{
 .feature-item__title{
 		font-size: 1.875rem;
 		font-weight: 300;
-		margin-bottom: .8rem;
+		margin-bottom: .8rem;		
 	}

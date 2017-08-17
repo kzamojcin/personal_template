@@ -55,3 +55,14 @@ With couple of days away, I've refreshed my brain a bit and we are back on track
 #### 2017-07-30 :clock1145: 11:47am
 
 After 2 weeks of vacation it's time to get back to work :) 
+
+#### 2017-08-17 :clock0930: 09:26am
+
+A week of holidays again, WHO KNEW that was coming? ( seriously I did not )
+
+Still I have managed to do some work, that was more graphic design related.
+
+There is so much going on, and I'm happy about it, although I'm finding myself in lack of time.
+I need to work harder on my organization skills.
+
+Over-&-Out
