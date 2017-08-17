@@ -1,7 +1,16 @@
 ### no.1
 
+1. 
+
 Install node.js - [nodejs official website](https://nodejs.org/en/)
 By doing so we are going to be able to use npm command, and much more
+
+2.
+
+If we want to re-create our project on another machine then we need to go through few steps.
+
+- first we need to run "npm init" in a folder where we are going to install our node modules 
+- download all files from our repository and replace package.json with package.json from our repository and run "npm install"
 
 ### no.2 Creation of "ingredient" list for our website
 
