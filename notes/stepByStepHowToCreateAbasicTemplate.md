@@ -312,7 +312,54 @@ Same
 <img sizes="(min-width: 970px) 976px, 100vw" srcset="assets/images/first-trip-low-res-i.jpg 565w, assets/images/first-trip-i.jpg 976w, assets/images/first-trip-hi-dpi-i.jpg 1952w" alt="Couple walking down a street.">
 ```
 
-### no.7 Creating an svg sprite
+### no.7 Creating an svg icon sprite and basic commands for gulp-svg-sprite commands
 
+To read more about gulp-svg-sprite go to its github page
 
+We create a sprite of icons to boost loading speed of our page, by accumulating all icons in one image.
 
+Gulp is going to get all of our icons and convert them into that one image.
+
+1. Added sprites.js file to gulp>tasks folder
+2. Install gulp-svg-sprite
+3. Create gulp.task 
+4. Create a config object for gulp-svg-sprite plugin
+5. gulp-svg-sprite uses a moustache template system "{{#shapes}}some code{{/shapes}}" anything included inside that code is going to be looped through for each icon
+
+Example:
+
+```
+{{#shapes}}
+	.icon--{{base}} {
+		width:;
+		height:;
+	}
+{{/shapes}}
+```
+
+Outputs:
+
+```
+.icon--facebook {
+		width:;
+		height:;
+	}
+	.icon--fire {
+		width:;
+		height:;
+	}
+	.icon--globe {
+		width:;
+		height:;
+	}
+```
+
+So base argument reads the name of each icon file and puts it in place.
+**OK, that is impressive !**
+
+{{{sprite}}} - goes into svg folder (created by plugin) and reads sprite file
+{{#first}}{{/first}} - code runs only once
+
+6. Once we have our sprite and CSS file related to that sprite, we need to include it in our main style.css file so we can make use of it.
+
+7. There is a few new npm plugins included in this process, be sure to check sprites.js for them. 
