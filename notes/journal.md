@@ -52,11 +52,11 @@ Over-&-Out
 
 With couple of days away, I've refreshed my brain a bit and we are back on tracks to continue creation of our web template.
 
-#### 2017-07-30 :clock1145: 11:47am
+#### 2017-07-30 :clock1130: 11:47am
 
 After 2 weeks of vacation it's time to get back to work :) 
 
-#### 2017-08-17 :clock0930: 09:26am
+#### 2017-08-17 :clock930: 09:26pm
 
 A week of holidays again, WHO KNEW that was coming? ( seriously I did not )
 
@@ -66,3 +66,13 @@ There is so much going on, and I'm happy about it, although I'm finding myself i
 I need to work harder on my organization skills.
 
 Over-&-Out
+
+#### 2017-08-18 :clock830: 08:15am
+
+Good morning, you.
+
+I'm up and running.
+Nothing super fancy for upcoming days, need to complete three projects.
+Wish me luck.
+
+

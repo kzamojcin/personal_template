@@ -1,3 +1,5 @@
+## On-going process of collecting steps
+
 ### no.1
 
 1. 
@@ -201,7 +203,16 @@ There is a [Super Cool](https://www.youtube.com/watch?v=GvIP6QtCVSg&t=333s) youT
 
 5. Some extras
 
-Line height - property that doesnt require a unit of measurement like px,rem etc.
+**Line height** - property that doesnt require a unit of measurement like px,rem etc.
+
+**Padding** - It is a good practice to give a container element at least 1px of bottom padding, if it is 0 elements that are inside have nothing to push against, thus margin flows out of the container 
+
+**Position relative** - Surrounding elements are not aware of the change in position of our element, as far as they are concerned the element still sits in same place as before.
+To counteract this we can add negative 80px to our bottom margin, when moving element 80px upwards. So elements would be aware of the change, and move as well those 80px upwards.
+
+**flexbox** - with use of flexbox we can even heights of our elements
+
+
 
 
 ### no.5 Setting up a Browsersync, let gulp use it to refresh the page for you
@@ -300,6 +311,8 @@ Same
 
 <img sizes="(min-width: 970px) 976px, 100vw" srcset="assets/images/first-trip-low-res-i.jpg 565w, assets/images/first-trip-i.jpg 976w, assets/images/first-trip-hi-dpi-i.jpg 1952w" alt="Couple walking down a street.">
 ```
+
+### no.7 Creating an svg sprite
 
 
 
