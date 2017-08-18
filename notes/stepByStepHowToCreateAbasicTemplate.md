@@ -212,7 +212,7 @@ To counteract this we can add negative 80px to our bottom margin, when moving el
 
 **flexbox** - with use of flexbox we can even heights of our elements
 
-
+**Position absolute** - by default it shrink-wraps so it uses as little space as it can or in other words as much as it needs.
 
 
 ### no.5 Setting up a Browsersync, let gulp use it to refresh the page for you
@@ -362,4 +362,12 @@ So base argument reads the name of each icon file and puts it in place.
 
 6. Once we have our sprite and CSS file related to that sprite, we need to include it in our main style.css file so we can make use of it.
 
+Example of sprite in use:
+
+```
+<span class="icon icon--star section-title__icon"></span>
+```
+
 7. There is a few new npm plugins included in this process, be sure to check sprites.js for them. 
+
+### no.8 self-note - be sure to write down and describe all npm packages installed 
