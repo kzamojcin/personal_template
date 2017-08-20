@@ -216,6 +216,8 @@ To counteract this we can add negative 80px to our bottom margin, when moving el
 
 **Position absolute** - by default it shrink-wraps so it uses as little space as it can or in other words as much as it needs.
 
+**z-index** - to be respected by our browser needs to be used in conjuction with position: relative.
+
 
 ### no.5 Setting up a Browsersync, let gulp use it to refresh the page for you
 
@@ -436,17 +438,17 @@ babel-core, babel-loader (helps to integrate babel with webpack), babel-preset-2
 
 ```
 module:{
-		loaders: [
-			{
-				loader: 'babel-loader',
-				query: {
-					presets: ['es2015']
-				},
-				test: /\.js$/,
-				exclude: /node_modules/
-			}
-		]
-	}
+	loaders: [
+		{
+			loader: 'babel-loader',
+			query: {
+				presets: ['es2015']
+			},
+			test: /\.js$/,
+			exclude: /node_modules/
+		}
+	]
+}
 ```
 Included this code into webpack.config.js
 
@@ -471,7 +473,7 @@ In this example, Jane now has access to an Adult class, while still having acces
 
 With ES6 we can transform our code significantly.
 
-This code:
+This code (importing a module):
 ```
 var Person = require('./modules/Person');
 ```
@@ -481,7 +483,7 @@ import Person from './modules/Person';
 ```
 
 
-This code:
+This code (creating a module/class/function & exporting):
 ```
 function Person(fullName, favColor){
 	this.name = fullName;
@@ -535,3 +537,49 @@ This code throws an error because this.menuIcon object doesn't have a property n
 Upon click event "this" no longer refers to MobileMenu object, now it refers to menuIcon 
 
 That is why we need to bind the "this" keyword back to MobileMenu object, which has menuContent property
+
+### no.12 lets.......... Reveal on scroll
+
+
+1. Install waypoints!
+
+npm install waypoints --save
+
+2. Import waypoints into our JS file
+
+Waypoints package doesn't have a main file so we have to be quite specific and manually type the path to a file we are interested in.
+
+3. Make use of this quite nice package
+
+```
+createWaypoints(){
+	this.itemsToReveal.each(function(){
+		var currentItem = this;
+		new Waypoint({
+			element: currentItem,
+			handler: function(){
+				$(currentItem).addClass("reveal-item--is-visible");
+			},
+			offset:'90%'
+		});
+	});
+}
+//this.itemsToReveal = $('.feature-item');
+```
+For each item with a class of feature-item the code is going to run a Waypoints() class.
+
+Handler function can receive a "direction" attribute like "down/up" 
+
+```
+handler: function(direction){
+	if(direction == "down"){
+		that.siteHeader.addClass("site-header--dark");
+	}else{
+		that.siteHeader.removeClass("site-header--dark");
+	}
+}
+```
+
+### no.13 ...and smoooth it out.
+
+1. install jquery-smooth-scroll
