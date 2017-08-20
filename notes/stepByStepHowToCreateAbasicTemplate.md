@@ -1,5 +1,7 @@
 ## On-going process of collecting steps
 
+### self-note - be sure to write down and describe all npm packages installed 
+
 ### no.1
 
 1. 
@@ -370,4 +372,166 @@ Example of sprite in use:
 
 7. There is a few new npm plugins included in this process, be sure to check sprites.js for them. 
 
-### no.8 self-note - be sure to write down and describe all npm packages installed 
+### no.9 Webpack - allows to split up our js into multiple files
+
+1. Install webpack on our computer: npm install webpack -g (globally)
+2. Add webpack.config.js file into root of our folder
+
+note - when we require a file, the code from that file is immediately executed.
+
+Required variable is always an object.
+
+
+To be able to use certain parts of js from another file in our main js file, first we need to export those parts from within that file.
+Webpack is expecting a file to contain an object "exports = {}", this is what is returned by required call.
+
+```
+exports.exampleProperty = "Super magical example value";
+exports.exampleFunction = function(){
+	alert("Swishhhhh..");
+}
+```
+Above, thats the way to export properties and methods.
+
+Below, to create a module we transform exports object into an object we have created inside our file.... sth like this..
+```
+module.exports = Person;
+```
+
+
+3. Setting webpack so it refreshes webrowser automatically on change of .js files
+
+Personal note - webpack does have an ability to watch our files and even spin out its own webpack dev server // not going to use in this project as we already use gulp&browsersync
+
+Integration of webpack into our gulp automation: 
+
+**If we want to run webpack programmaticaly within our gulp task, we need to install webpack LOCALLY** - super important
+
+To make our webpack code "error-proof" we can make use of two attributes that webpack provides ( err & stats ):
+
+```
+webpack(require('../../webpack.config.js'), function(err,stats){
+		if(err){
+			console.log(err.toString());
+
+		}
+		console.log(stats.toString());
+		callback();
+	});
+```
+toString() method translates data into readable human information
+
+### no.10 BABEL - excited ?.. I am! 
+
+> Tomorrow's JavaScript today - Brad Schiff
+
+Babel to JavaScript is what PostCSS,SASS,LESS is to CSS, it allows us to use ultra modern JS syntax within our files even if that syntax is not yet used by web browsers, it is going to translate it into standard syntax (like ES6 -> ES5 JS) that web browsers can use.
+That's the kind of magic we love.
+
+1. To install Babel we need to actually install 3 packages
+
+babel-core, babel-loader (helps to integrate babel with webpack), babel-preset-2015
+
+2. Integration of Babel into Webpack
+
+```
+module:{
+		loaders: [
+			{
+				loader: 'babel-loader',
+				query: {
+					presets: ['es2015']
+				},
+				test: /\.js$/,
+				exclude: /node_modules/
+			}
+		]
+	}
+```
+Included this code into webpack.config.js
+
+test - apply babel-loader only to JS files
+exclude - omit files in node_modules folder
+
+ES6 makes inheritance a piece of cake, example:
+
+```
+class Adult extends Person{
+	payTaxes(){
+		console.log( this.name + " zero taxes to pay.");
+	}
+}
+
+var jane = new Adult('Jane', 'Orange');
+```
+
+In this example, Jane now has access to an Adult class, while still having access to Person class.
+
+### no.11 JavaScript ES6
+
+With ES6 we can transform our code significantly.
+
+This code:
+```
+var Person = require('./modules/Person');
+```
+gets transformed into this:
+```
+import Person from './modules/Person';
+```
+
+
+This code:
+```
+function Person(fullName, favColor){
+	this.name = fullName;
+	this.favoriteColor = favColor;
+	this.greet = function(){
+		console.log("Hello " + fullName + " your fav color is " + favColor + ".");
+	}
+}
+
+module.exports = Person;
+```
+gets transformed into this:
+```
+class Person{
+
+	constructor(fullName, favColor){
+		this.name = fullName;
+		this.favoriteColor = favColor;		
+	}
+	greet(){
+		console.log("Hello " + fullName + " your fav color is " + favColor + ".");
+	}
+}
+
+export default Person;
+```
+
+
+
+
+```
+class MobileMenu{
+	constructor(){
+		this.menuIcon = $('.site-header__menu-icon');
+		this.menuContent = $('.site-header__menu-content');
+		this.events();
+	}
+	events(){
+		this.menuIcon.click(this.toggleTheMenu);			//Error
+		this.menuIcon.click(this.toggleTheMenu.bind(this)); //Valid
+	}
+
+	toggleTheMenu(){
+		this.menuContent.toggleClass('site-header__menu-content--is-visible');
+	}
+}
+```
+
+This code throws an error because this.menuIcon object doesn't have a property named menuContent, thus it cannot access this.menuContent of menuIcon.
+
+Upon click event "this" no longer refers to MobileMenu object, now it refers to menuIcon 
+
+That is why we need to bind the "this" keyword back to MobileMenu object, which has menuContent property
