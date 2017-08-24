@@ -583,3 +583,10 @@ handler: function(direction){
 ### no.13 ...and smoooth it out.
 
 1. install jquery-smooth-scroll
+2. select all the elements you want to scroll to
+
+this.headerLinks = $('.primary-nav a');
+
+3. apply smoothScroll() method to them
+
+this.headerLinks.smoothScroll();
