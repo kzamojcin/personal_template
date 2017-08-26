@@ -12,9 +12,11 @@
 	&--testimonials{
 		background-color: #e0e6ef;
 		@mixin atLarge{
-			background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
-			-webkit-background-size: cover;
-			background-size: cover;
+			&.lazyloaded{
+				background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
+				-webkit-background-size: cover;
+				background-size: cover;
+			}
 		}
 	}
 	&--no-b-padding-until-medium{

@@ -83,6 +83,10 @@ By adding this line of code to our 'styles' task, we are able to prevent gulp fr
 })
 ```
 
+5. some Extras
+
+while writing gulp.task, with gulp.src we can use []  (['folder1/folder1','folder2/folder2']) to provide multiple paths.
+
 ### no.4 Setting a CSS workflow, and building our CSS skeleton around BEM (Block Element Modifier) principles
 
 1.
@@ -582,7 +586,7 @@ handler: function(direction){
 
 ### no.13 ...and smoooth it out.
 
-1. install jquery-smooth-scroll
+1. npm install jquery-smooth-scroll
 2. select all the elements you want to scroll to
 
 this.headerLinks = $('.primary-nav a');
@@ -590,3 +594,113 @@ this.headerLinks = $('.primary-nav a');
 3. apply smoothScroll() method to them
 
 this.headerLinks.smoothScroll();
+
+### no.14 lazy load
+
+Because we dont want for our users to waste their data plan!
+
+In other words, we want to load things when they are in the view, not to burst through all of them simply on entering the website.
+
+1. npm install lazysizes --save
+
+And.. ba dum tss.. most of the work is done 
+
+To include lazysizes to our project we create a file named Vendor.js next to App.js
+
+Vendor.js holds packages/plugins that do not require any configuration or setup, we just include them in our webflow and we are ready to make use of its functions.
+
+Vendor JS files need to be included at the start of the page not like most JS files at the end.
+
+In few words, we just add class of 'lazyload' to the img we want to lazyload, although we need to change the "src/srcset" att to a custom one like "data-srcset", as otherwise browsers seeing src attribute will download it in a blink of a blind cowboy eye (sic !) no matter if lazyload is ready or not.
+
+class of lazyload transforms into class of lazyloaded upon scrolling, so we can make use of that in our CSS. 
+
+personal note:
+Quite a trick right ? .. yeah... kind of.. nope.. be more aware of the surroundings ! then you`ll notice things like this on your own.
+
+### Browser support - IMPORTANT.. duh :D
+
+### no.15 taking care of responsive images
+Picturefill - allows older browsers to understand responsive images
+
+1. npm install picturefill --save
+
+Picturefill is another package that quallifies into Vendor.js
+
+2. add picturefill into Vendor.js
+
+Pufff... that's what I call higher level magic, as this is all ! Picfill will take care of our images now
+
+### no.16 taking care of SVG sprites
+
+We are going to use Gulp to create a PNG copy of SVG sprite, and only send the PNG ver to browsers that dont support SVG
+
+1. npm install gulp-svg2png --save-dev
+
+Make use of svg2png in our gulp tasks file for sprites
+
+2. npm install gulp-modernizr --save-dev
+
+3. create & configure modernizr.js in gulp task folder
+
+4. add modernizr.js from gulp/tasks to gulpfile.js - this creates another instance of modernizr.js in app/temp/scripts/
+
+5. add modernizr.js from app/temp/scripts/ to Vendor.js
+
+6. We need to modify sprite.css & sprites.js, and thats it ( quite complicated actually )
+
+### no.17 flexbox for older browsers
+
+This on another hand is super easy, once we have modernizr in our tool-set, as we only need to add .flexbox preeceding the css classes that are using flexbox, and yeah thats it :)
+
+### no.18 removing artifacts from our sprite file
+
+To remove artifacts we just need to add some spacing between our icons:
+
+```
+var config = {
+	shape:{
+		spacing:{
+			padding:1
+		}
+	},
+	mode: {
+```	
+
+### no.19 preping for deplo_Y
+
+The goal of this steps is to make our website as small as possible to load as fast as possible
+
+1. Make new folder named 'dist'(distributable) in our root folder
+
+app folder 
+
+source code, multiple files, highly organized
+
+dist folder
+
+public copy, minimal files, compressed(img,css,js)
+
+2. create new gulp task, 'build'
+3. npm install gulp-imagemin --save-dev
+4. npm install gulp-usemin --save-dev
+5. npm install gulp-rev gulp-cssnano gulp-uglify --save-dev
+6. adding a special task for some extra files that might happen later on along the way  to be copied over to our dist folder
+7. adding local preview with browsersync to our dist ver of website
+
+
+### no.20 publishing our website on github server
+
+1. first of all gitHub pages expects our 'dist' folder to be named 'docs'
+2. second, we need to correct our paths for usemin in index.html and for our background images. 
+3. push our site to github
+4. go to repo settings -> github pages -> and for the source select master branch/docs folder
+
+### no.21 git merge conflicts
+
+1. Run the 'git pull' command often
+2. Communicate with your team
+3. Standarize white space settings in text-editor
+4. Think of 'git merge' as a two-way street
+
+> List by Brad Schiff
