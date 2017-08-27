@@ -20,13 +20,13 @@ If we want to re-create our project on another machine then we need to go throug
 
 npm init (creates a **package.json** file, it keeps track of all of the packages that the project uses.)
 
-npm install <pkg> --save (afterwards to install a package and
+npm install <pkg> --save (to install a package and
 save it as a dependency in the package.json file.)
 
 1. npm init
 2. npm install package --save
 
-npm install (alone it will go through our package.json file and it will install all packages listed there - How cool is this ?!)
+npm install (it will go through our package.json file and it will install all packages listed there - How cool is this ?!)
 
 To find a package go to npmjs.com or simply type in google what you want to achieve and back it with "npm"
 
@@ -48,7 +48,7 @@ Adds gulp to our specific project (ex. perosnal_template/website-blueprint/)
 By saving it with -dev we put it into devDependencies, the difference between devDependencies and dependencies alone is:
 
 dependecies - packages required by our website to run properly in web browser
-devDependencies - development packages important for.. developer
+devDependencies - development packages important for.. developer ;)
 
 ##### To be able to use it, whenever we install a gulp package we need to require it in our main gulp file, for this template it is gulpfile.js
 
@@ -62,7 +62,7 @@ Gulp plugin **gulp-watch** lets us monitor specified files for changes and do so
 
 './app/assets/styles/**/*.css' selects all the folders inside styles folder and all files inside those folders which ends with '.css'. This doesn't really fit well in this section although it was worth noting, going to change location soon.
 
-Square brackets after a name of the task create dependencies, so that task is not run until the dependant task is completed.
+Square brackets after a name of the task create dependency, so that task is not run until the dependant task is completed.
 
 ```
 gulp.task('cssInject', ['styles'] function(){
@@ -83,9 +83,9 @@ By adding this line of code to our 'styles' task, we are able to prevent gulp fr
 })
 ```
 
-5. some Extras
+5. Extras
 
-while writing gulp.task, with gulp.src we can use []  (['folder1/folder1','folder2/folder2']) to provide multiple paths.
+while writing a gulp task, within gulp.src we can use []  (['folder1/folder1','folder2/folder2']) to provide multiple paths.
 
 ### no.4 Setting a CSS workflow, and building our CSS skeleton around BEM (Block Element Modifier) principles
 
@@ -109,7 +109,7 @@ For now I'm going to use postCss, but I'm considering the use of Prepros for css
 
 Well organized css file structure is very important.
 
-In this project we create few _filename.css files, underscore "_" meaning is that it tells us that a file is not a stand-alone, it is imported in some other css file. 
+In this project we create few _filename.css files, underscore "_" tells us that a file is not a 'stand-alone', it is imported in some other css file. 
 
 Here we use styles.css as a destination file for all partial css ("_filename.css") files.
 
@@ -138,7 +138,9 @@ Presented below is folders & files current structure.
             styles.css
 ```
 
-temp folder styles.css contains only `@import` commands to import all of partial css files
+styles folder styles.css contains only `@import` commands to import all of partial css files
+
+temp folder styles.css is for browsers
 
 Once we have few more partial files, it is going to be easier to see how useful this workflow is.
 
@@ -147,7 +149,7 @@ Once we have few more partial files, it is going to be easier to see how useful 
 Added normalize to our main style.css file, it is an alternative to css resets it adjusts the styles for certain elements, to make your browser more consistent through the browsers.
 
 Personal note: use it on all projects
-Personal note: to center a DIV ( wdith 100% ta: center)
+Personal note: to center a DIV ( width 100% ta: center)
 
 **BEM:** 
 
@@ -163,13 +165,13 @@ __ element -- with modifier
 
 **REM font size:**
 
-rem is simply a result of quotient of font-size we want to provide with default font size, in pixels:
+rem is simply a result of quotient of font-size we want to provide with browser default font size in pixels:
 
 font size in rem is always related to the root of the page default font size ( html element )
 
-Most browsers default font size is 16px, so if we want to have an equivalent of for example 24px in rems, then 24px / 16px = 1.5rem
+Most browsers default font size is 16px, so if we want to have an equivalent of lets say 24px in rems, then 24px / 16px = 1.5rem
 
-Making our font size not hard coded this way, we also take care of users who have their browser default settings changed to their likings, like near-sighted or far-sighted people, I think it is safe to say that it becomes responsive in a way.
+Making our font size not hard coded, we also take care of users who have their browser default settings changed to their likings, like near-sighted or far-sighted people, I think it is safe to say that it becomes responsive.
 
 **EM font size**
 
@@ -177,7 +179,7 @@ This sets the font size in relation to the font size of the element
 
 3.
 
-Whenever you use a float attribute, you take the element from the default/normal flow of the page, so it might be necessary to clear after float so elements do not collapse on each other.
+Whenever you use a float attribute, you take the element out from the default/normal flow of the page, so it might be necessary to clear after float so elements do not collapse on each other.
 
 Below, an example how to clear after our floated elements with the use of a mixin named clearfix.
 
@@ -191,7 +193,7 @@ Below, an example how to clear after our floated elements with the use of a mixi
 }
 ```
 
-4.
+4. Love it, cherish it, SPREAD IT :)
 
 ```
 *{
@@ -199,11 +201,9 @@ Below, an example how to clear after our floated elements with the use of a mixi
 }
 ```
 
-Love it, cherish it, SPREAD IT :)
-
 This bit of css changes the way browser calculates the "box model" for every element on the page ( * - apply to everything ) . 
 
-Long story short, when you add border or/and padding to the element, browser recalculates the size of the element so it stays having the same dimensions but with that new padding/border. Without that css code browser by default enlarges the element by adding padding/border size to so called true width of the element.
+Long story short, when you add border or/and padding to the element, browser recalculates the size of the element so it stays having the same dimensions but with that new padding/border. Without that bit of css browser by default enlarges the element by adding padding/border size to so called true width of the element.
 
 There is a [Super Cool](https://www.youtube.com/watch?v=GvIP6QtCVSg&t=333s) youTube video by Travis Neilson explaining how the magic works in detail, so be sure to check it out.
 
@@ -213,7 +213,7 @@ There is a [Super Cool](https://www.youtube.com/watch?v=GvIP6QtCVSg&t=333s) youT
 
 **Padding** - It is a good practice to give a container element at least 1px of bottom padding, if it is 0 elements that are inside have nothing to push against, thus margin flows out of the container 
 
-**Position relative** - Surrounding elements are not aware of the change in position of our element, as far as they are concerned the element still sits in same place as before.
+**Position relative** - Surrounding elements are not aware of the change in position of our element, as far as they are concerned the element still sits in its original position.
 To counteract this we can add negative 80px to our bottom margin, when moving element 80px upwards. So elements would be aware of the change, and move as well those 80px upwards.
 
 **flexbox** - with use of flexbox we can even heights of our elements
@@ -225,11 +225,11 @@ To counteract this we can add negative 80px to our bottom margin, when moving el
 
 ### no.5 Setting up a Browsersync, let gulp use it to refresh the page for you
 
-Browser sync is awesome!
+**Browser sync is awesome!**
 
-With help from Gulp, Browser sync allows our computer to update our project on the fly, saving us a ton of time by eliminating trivial tasks like refreshing the page from our task list.
+With help from Gulp, Browsersync allows our computer to update our project on the fly, saving us a ton of time by eliminating trivial tasks like refreshing the page from our task list.
 
-If thats not enough Browser sync allows us to simultaneously watch our website on variety of devices in the same network and on different browsers, all of that LIVE!
+If thats not enough Browsersync allows us to simultaneously watch our website on variety of devices in the same network and on different browsers, all of that LIVE!
 
 How cool is that ?! 
 
@@ -292,7 +292,7 @@ With this method, we always want to start with smallest img first.
 </picture>
 ```
 
-By adding higher resolution of images to each media query we cover retina displays as well ( which are of higher pixel density )
+By adding higher resolution of images to each media query we cover retina type of  displays as well ( which are of higher pixel density )
 
 4. A way to tell the browser at what width the img is going to be displayed, IF NOT full window width. For same & different cropping.
 
@@ -302,7 +302,7 @@ In other cases we need to add an attribute called "sizes" and specify (max)width
 **Real fun thing is**, that we can use media queries inside of sizes attribute !
 
 Below, in the "Same" example we can see a use of sizes attribute with media query.
-It says that for screens with min-width 970px and higher, img is going to have a max width of 976px, for screens lower than that media query ( < 970px ) img is having 100vw ( 100% of viewpor twidth of the device ) 
+It says that for screens with min-width 970px and higher, img is going to have a max width of 976px, for screens lower than that media query ( < 970px ) img is having 100vw ( 100% of viewport width of the device ) 
 
 ```
 Different
@@ -328,7 +328,7 @@ We create a sprite of icons to boost loading speed of our page, by accumulating 
 
 Gulp is going to get all of our icons and convert them into that one image.
 
-1. Added sprites.js file to gulp>tasks folder
+1. Add sprites.js file to gulp>tasks folder
 2. Install gulp-svg-sprite
 3. Create gulp.task 
 4. Create a config object for gulp-svg-sprite plugin
@@ -380,7 +380,7 @@ Example of sprite in use:
 
 ### no.9 Webpack - allows to split up our js into multiple files
 
-1. Install webpack on our computer: npm install webpack -g (globally)
+1. Install webpack npm install webpack -g (globally)
 2. Add webpack.config.js file into root of our folder
 
 note - when we require a file, the code from that file is immediately executed.
@@ -431,8 +431,8 @@ toString() method translates data into readable human information
 
 > Tomorrow's JavaScript today - Brad Schiff
 
-Babel to JavaScript is what PostCSS,SASS,LESS is to CSS, it allows us to use ultra modern JS syntax within our files even if that syntax is not yet used by web browsers, it is going to translate it into standard syntax (like ES6 -> ES5 JS) that web browsers can use.
-That's the kind of magic we love.
+Babel to JavaScript is what PostCSS,SASS,LESS is to CSS, it allows us to use ultra modern JS syntax within our files even if that syntax is not yet used by web browsers, it is going to translate it into standard syntax (like ES6 -> ES5 JS) that web browsers can understand.
+That's the kind of magic we love :)
 
 1. To install Babel we need to actually install 3 packages
 
@@ -545,7 +545,7 @@ That is why we need to bind the "this" keyword back to MobileMenu object, which 
 ### no.12 lets.......... Reveal on scroll
 
 
-1. Install waypoints!
+1. Install waypoints \o/
 
 npm install waypoints --save
 
@@ -553,7 +553,7 @@ npm install waypoints --save
 
 Waypoints package doesn't have a main file so we have to be quite specific and manually type the path to a file we are interested in.
 
-3. Make use of this quite nice package
+3. Make use of this nice package
 
 ```
 createWaypoints(){
