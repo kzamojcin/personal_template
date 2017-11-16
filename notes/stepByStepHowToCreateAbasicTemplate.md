@@ -9,6 +9,8 @@
 Install node.js - [nodejs official website](https://nodejs.org/en/)
 By doing so we are going to be able to use npm command, and much more
 
+Important - for some reason, after setting up fresh system, to be able to use npm install I had to use it first on my C:/ drive to have an option to use it on external disks as well. 
+
 2.
 
 If we want to re-create our project on another machine then we need to go through few steps.
@@ -294,7 +296,7 @@ With this method, we always want to start with smallest img first.
 
 By adding higher resolution of images to each media query we cover retina type of  displays as well ( which are of higher pixel density )
 
-4. A way to tell the browser at what width the img is going to be displayed, IF NOT full window width. For same & different cropping.
+4. IF NOT full window width. A way to tell the browser at what width the img is going to be displayed. For same & different cropping.
 
 Telling the browser what size of our img is works well if the img is going to be displayed at 100% of window width.
 
@@ -320,7 +322,7 @@ Same
 <img sizes="(min-width: 970px) 976px, 100vw" srcset="assets/images/first-trip-low-res-i.jpg 565w, assets/images/first-trip-i.jpg 976w, assets/images/first-trip-hi-dpi-i.jpg 1952w" alt="Couple walking down a street.">
 ```
 
-### no.7 Creating an svg icon sprite and basic commands for gulp-svg-sprite commands
+### no.7 Creating an svg icon sprite and basic commands for gulp-svg-sprite
 
 To read more about gulp-svg-sprite go to its github page
 
