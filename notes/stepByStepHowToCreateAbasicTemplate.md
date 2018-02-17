@@ -11,6 +11,11 @@ By doing so we are going to be able to use npm command, and much more
 
 Important - for some reason, after setting up fresh system, to be able to use npm install I had to use it first on my C:/ drive to have an option to use it on external disks as well. 
 
+ECONNRESET - use ADW cleaner- last time it helped
+If problem with ECONNRESET persist, try using windows powershell but it is unlikely to help.
+
+nothing of above really helped, installing old node of v.6.11.2 with npm 3.10.10 solved all of the issues
+
 2.
 
 If we want to re-create our project on another machine then we need to go through few steps.
@@ -323,6 +328,9 @@ Same
 ```
 
 ### no.7 Creating an svg icon sprite and basic commands for gulp-svg-sprite
+
+Whenever generating a new svg file, we need to run build, not icons gulp-task :) 
+So we can have our new sprite file name included in code.
 
 To read more about gulp-svg-sprite go to its github page
 
